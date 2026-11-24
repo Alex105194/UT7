@@ -21,5 +21,68 @@
   </script>
   <!-- Docsify resource -->
   <script src="//cdn.jsdelivr.net/npm/docsify@5"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<style>
+  #pdf-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: #42b983;
+    color: #111;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0,0,0,.4);
+  }
+
+  #pdf-button:hover {
+    background: #35a574;
+  }
+
+  @media print {
+    #pdf-button {
+      display: none;
+    }
+  }
+</style>
+
+<button id="pdf-button" onclick="descargarPDF()">
+  📄 Descargar esta página en PDF
+</button>
+
+<script>
+  function descargarPDF() {
+    const contenido = document.querySelector('.markdown-section');
+
+    if (!contenido) {
+      alert('No se ha encontrado el contenido de esta página.');
+      return;
+    }
+
+    const opciones = {
+      margin: 10,
+      filename: (location.hash.replace(/^#\/?/, '').replace(/\//g, '-') || 'inicio') + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: '#ffffff'
+      },
+      jsPDF: {
+        unit: 'mm',
+        format: 'a4',
+        orientation: 'portrait'
+      },
+      pagebreak: { mode: ['css', 'legacy'] }
+    };
+
+    html2pdf().set(opciones).from(contenido).save();
+  }
+</script>
 </body>
 </html>
