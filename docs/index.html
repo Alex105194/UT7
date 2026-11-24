@@ -9,34 +9,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/core.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/addons/core-dark.min.css">
 
-  <style>
-    #pdf-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 99999;
-      background: #42b983;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      padding: 10px 16px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    #pdf-button:hover {
-      background: #35a574;
-    }
-  </style>
 </head>
 
 <body>
 
   <div id="app"></div>
-
-  <button id="pdf-button" onclick="descargarPDF()">
-    📄 Descargar como PDF
-  </button>
 
   <script>
     window.$docsify = {
@@ -50,36 +27,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/docsify@5"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
-  <script>
-    function descargarPDF() {
-      const contenido = document.querySelector('.markdown-section');
-
-      if (!contenido) {
-        alert('No se encuentra el contenido de la página.');
-        return;
-      }
-
-      const nombre = (location.hash.replace(/^#\/?/, '').replace(/\//g, '-') || 'inicio') + '.pdf';
-
-      html2pdf().set({
-        margin: 10,
-        filename: nombre,
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: {
-          scale: 2,
-          backgroundColor: '#ffffff',
-          useCORS: true
-        },
-        jsPDF: {
-          unit: 'mm',
-          format: 'a4',
-          orientation: 'portrait'
-        }
-      }).from(contenido).save();
-    }
-  </script>
 
 </body>
 </html>
