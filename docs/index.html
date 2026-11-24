@@ -4,8 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Mi Portfolio</title>
-  <meta name="description" content="Mi Portfolio">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/core.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/addons/core-dark.min.css">
@@ -17,31 +16,16 @@
       right: 20px;
       z-index: 99999;
       background: #42b983;
-      color: #111;
+      color: white;
       border: none;
-      border-radius: 8px;
-      padding: 12px 18px;
-      font-weight: bold;
-      font-size: 15px;
+      border-radius: 6px;
+      padding: 10px 16px;
       cursor: pointer;
-      box-shadow: 0 3px 10px rgba(0,0,0,.4);
+      font-size: 14px;
     }
 
     #pdf-button:hover {
       background: #35a574;
-    }
-
-    #pdf-button:disabled {
-      opacity: 0.6;
-      cursor: wait;
-    }
-
-    @media (max-width: 600px) {
-      #pdf-button {
-        bottom: 12px;
-        right: 12px;
-        font-size: 13px;
-      }
     }
   </style>
 </head>
@@ -51,7 +35,7 @@
   <div id="app"></div>
 
   <button id="pdf-button" onclick="descargarPDF()">
-    📄 Descargar esta página en PDF
+    📄 Descargar como PDF
   </button>
 
   <script>
@@ -64,71 +48,36 @@
     };
   </script>
 
-  <!-- Docsify -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@5"></script>
 
-  <!-- Librería PDF -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <script>
-    async function descargarPDF() {
+    function descargarPDF() {
       const contenido = document.querySelector('.markdown-section');
-      const boton = document.getElementById('pdf-button');
 
       if (!contenido) {
-        alert('No se ha encontrado el contenido de esta página.');
+        alert('No se encuentra el contenido de la página.');
         return;
       }
 
-      if (typeof html2pdf === 'undefined') {
-        alert('No se ha podido cargar la librería PDF.');
-        return;
-      }
+      const nombre = (location.hash.replace(/^#\/?/, '').replace(/\//g, '-') || 'inicio') + '.pdf';
 
-      const nombrePagina = location.hash
-        .replace(/^#\/?/, '')
-        .replace(/\//g, '-')
-        .replace(/[^\w\-áéíóúÁÉÍÓÚñÑ]/g, '') || 'inicio';
-
-      const opciones = {
+      html2pdf().set({
         margin: 10,
-        filename: nombrePagina + '.pdf',
-        image: {
-          type: 'jpeg',
-          quality: 0.98
-        },
+        filename: nombre,
+        image: { type: 'jpeg', quality: 0.98 },
         html2canvas: {
           scale: 2,
-          useCORS: true,
           backgroundColor: '#ffffff',
-          scrollY: 0
+          useCORS: true
         },
         jsPDF: {
           unit: 'mm',
           format: 'a4',
           orientation: 'portrait'
-        },
-        pagebreak: {
-          mode: ['css', 'legacy']
         }
-      };
-
-      try {
-        boton.disabled = true;
-        boton.textContent = '⏳ Generando PDF...';
-
-        await html2pdf()
-          .set(opciones)
-          .from(contenido)
-          .save();
-
-      } catch (error) {
-        console.error(error);
-        alert('Error al generar el PDF.');
-      } finally {
-        boton.disabled = false;
-        boton.textContent = '📄 Descargar esta página en PDF';
-      }
+      }).from(contenido).save();
     }
   </script>
 
