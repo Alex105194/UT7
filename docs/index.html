@@ -1,36 +1,77 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <title>Mi Portfolio</title>
-  <meta name="description" content="Description">
+  <meta name="description" content="Mi Portfolio">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5/dist/themes/core.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5/dist/themes/addons/core-dark.min.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/core.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/addons/core-dark.min.css">
+
+  <style>
+    #pdf-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99999;
+      background: #42b983;
+      color: #111;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0,0,0,.4);
+    }
+
+    #pdf-button:hover {
+      background: #35a574;
+    }
+
+    #pdf-button:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+
+    @media (max-width: 600px) {
+      #pdf-button {
+        bottom: 12px;
+        right: 12px;
+        font-size: 13px;
+      }
+    }
+  </style>
 </head>
+
 <body>
+
   <div id="app"></div>
-  <script>
-     window.$docsify = {
-        name: 'Mi Portfolio',
-        repo: 'Alex105194/UT7',
-        loadSidebar: true,
-        subMaxLevel: 3,
-        themeColor: '#42b983'
-    };
-  </script>
-  <!-- Docsify resource -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@5"></script>
 
   <button id="pdf-button" onclick="descargarPDF()">
     📄 Descargar esta página en PDF
   </button>
-  <!-- Librería para generar PDF -->
+
+  <script>
+    window.$docsify = {
+      name: 'Mi Portfolio',
+      repo: 'Alex105194/UT7',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      themeColor: '#42b983'
+    };
+  </script>
+
+  <!-- Docsify -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@5"></script>
+
+  <!-- Librería PDF -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <script>
     async function descargarPDF() {
-
       const contenido = document.querySelector('.markdown-section');
       const boton = document.getElementById('pdf-button');
 
@@ -40,7 +81,7 @@
       }
 
       if (typeof html2pdf === 'undefined') {
-        alert('No se ha podido cargar la librería PDF. Comprueba tu conexión.');
+        alert('No se ha podido cargar la librería PDF.');
         return;
       }
 
@@ -52,25 +93,21 @@
       const opciones = {
         margin: 10,
         filename: nombrePagina + '.pdf',
-
         image: {
           type: 'jpeg',
           quality: 0.98
         },
-
         html2canvas: {
           scale: 2,
           useCORS: true,
           backgroundColor: '#ffffff',
           scrollY: 0
         },
-
         jsPDF: {
           unit: 'mm',
           format: 'a4',
           orientation: 'portrait'
         },
-
         pagebreak: {
           mode: ['css', 'legacy']
         }
@@ -87,7 +124,7 @@
 
       } catch (error) {
         console.error(error);
-        alert('Ha ocurrido un error al generar el PDF.');
+        alert('Error al generar el PDF.');
       } finally {
         boton.disabled = false;
         boton.textContent = '📄 Descargar esta página en PDF';
