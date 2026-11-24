@@ -1,7 +1,7 @@
 
-/* =================================
-   TEMA OSCURO COMPLETO - DOCSIFY
-================================= */
+/* =====================================
+   PORTFOLIO DOCSIFY - TEMA OSCURO VERDE
+===================================== */
 
 /* FONDO DE TODA LA PAGINA */
 html,
@@ -10,16 +10,25 @@ body,
 .app,
 .content,
 .markdown-section {
-    background: #111827 !important;
+    background-color: #111827 !important;
     color: #e5e7eb !important;
 }
 
-/* ZONA PRINCIPAL */
-.content {
-    background-color: #111827 !important;
+/* EVITAR FONDOS BLANCOS EN EL CONTENIDO */
+.content,
+.content > main,
+.markdown-section {
+    background: #111827 !important;
 }
 
-/* TITULOS PRINCIPALES */
+/* TEXTO GENERAL */
+.markdown-section p,
+.markdown-section li,
+.markdown-section blockquote {
+    color: #e5e7eb !important;
+}
+
+/* TODOS LOS TITULOS */
 .markdown-section h1,
 .markdown-section h2,
 .markdown-section h3,
@@ -29,90 +38,87 @@ body,
     color: #42b983 !important;
 }
 
-/* TEXTO GENERAL */
-.markdown-section p,
-.markdown-section li,
-.markdown-section span,
-.markdown-section blockquote {
-    color: #e5e7eb !important;
-}
-
 /* ENLACES */
 .markdown-section a {
     color: #42b983 !important;
 }
 
-/* TABLAS */
-.markdown-section table,
-.markdown-section tr,
-.markdown-section td,
-.markdown-section th {
-    background-color: #1f2937 !important;
-    color: #e5e7eb !important;
-    border-color: #374151 !important;
-}
-
-/* =================================
+/* =====================================
    SIDEBAR
-================================= */
+===================================== */
 
 .sidebar {
-    background: #1f2937 !important;
+    background-color: #1f2937 !important;
     color: #ffffff !important;
     border-right: 1px solid #374151 !important;
 }
 
-/* TODOS LOS TEXTOS DEL SIDEBAR */
-.sidebar,
-.sidebar *,
-.sidebar-nav,
-.sidebar-nav li,
-.sidebar-nav p,
-.sidebar-nav span {
-    color: #ffffff !important;
-}
-
-/* TITULOS Y SECCIONES DEL SIDEBAR */
-.sidebar-nav strong,
-.sidebar-nav b,
-.sidebar-nav > ul > li > a,
-.sidebar-nav > ul > li > p {
+/* TITULOS PRINCIPALES: INICIO Y UT7 */
+.sidebar-nav > ul > li {
     color: #42b983 !important;
     font-weight: bold !important;
 }
 
-/* SUBTITULOS Y ENLACES SECUNDARIOS */
-.sidebar-nav ul li ul li a,
-.sidebar-nav ul li ul li p {
-    color: #ffffff !important;
+.sidebar-nav > ul > li > a {
+    color: #42b983 !important;
+    font-weight: bold !important;
 }
 
-/* SECCION ACTIVA */
+/* SUBTITULOS: 7.1, 7.2 Y 7.3 */
+.sidebar-nav ul ul li,
+.sidebar-nav ul ul li a {
+    color: #ffffff !important;
+    font-weight: normal !important;
+}
+
+/* APARTADO SELECCIONADO */
 .sidebar-nav li.active > a {
     color: #42b983 !important;
     border-right: 2px solid #42b983 !important;
 }
 
+/* HOVER */
+.sidebar-nav a:hover {
+    color: #42b983 !important;
+}
+
+/* =====================================
+   TABLAS Y CODIGO
+===================================== */
+
+.markdown-section table {
+    background-color: #1f2937 !important;
+    color: #e5e7eb !important;
+}
+
+.markdown-section th,
+.markdown-section td {
+    background-color: #1f2937 !important;
+    color: #e5e7eb !important;
+    border-color: #374151 !important;
+}
+
+.markdown-section pre {
+    background-color: #1f2937 !important;
+    border-radius: 8px;
+}
+
+.markdown-section pre code {
+    color: #e5e7eb !important;
+}
+
+.markdown-section hr {
+    border-color: #374151 !important;
+}
+
 /* BUSCADOR */
 .sidebar input {
-    background: #111827 !important;
+    background-color: #111827 !important;
     color: #ffffff !important;
     border-color: #374151 !important;
 }
 
-/* BOTON MENU */
+/* BOTON DEL MENU */
 .sidebar-toggle {
-    background: #1f2937 !important;
-}
-
-/* CODIGO */
-.markdown-section pre,
-.markdown-section code {
     background-color: #1f2937 !important;
-    color: #42b983 !important;
-}
-
-/* SEPARADORES */
-.markdown-section hr {
-    border-color: #374151 !important;
 }
