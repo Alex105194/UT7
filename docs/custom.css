@@ -1,0 +1,32 @@
+
+body {
+    background: #111827;
+    color: #e5e7eb;
+}
+
+.markdown-section {
+    color: #e5e7eb;
+}
+
+.markdown-section h1,
+.markdown-section h2,
+.markdown-section h3 {
+    color: #42b983;
+}
+
+.markdown-section a {
+    color: #42b983;
+}
+
+.sidebar {
+    background: #1f2937;
+}
+
+.sidebar-nav a {
+    color: #d1d5db;
+}
+
+.sidebar-nav li.active > a {
+    color: #42b983;
+    border-color: #42b983;
+}
