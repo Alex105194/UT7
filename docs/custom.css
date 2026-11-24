@@ -1,44 +1,58 @@
 
-/* FONDO GENERAL */
-body {
+/* ===== FONDO GENERAL ===== */
+body,
+.content {
     background-color: #111827 !important;
-    color: #e5e7eb !important;
 }
 
-/* CONTENIDO */
+/* ===== CONTENIDO ===== */
 .markdown-section {
-    color: #e5e7eb !important;
+    color: #ffffff !important;
 }
 
-/* TITULOS */
+/* ===== TITULOS DEL CONTENIDO ===== */
 .markdown-section h1,
 .markdown-section h2,
 .markdown-section h3,
-.markdown-section h4 {
+.markdown-section h4,
+.markdown-section h5 {
     color: #42b983 !important;
 }
 
-/* PARRAFOS */
+/* ===== PARRAFOS ===== */
 .markdown-section p,
 .markdown-section li {
     color: #e5e7eb !important;
 }
 
-/* MENU LATERAL */
+/* ===== SIDEBAR ===== */
 .sidebar {
     background-color: #1f2937 !important;
 }
 
-.sidebar-nav a {
-    color: #d1d5db !important;
+/* Títulos principales del sidebar */
+.sidebar-nav > ul > li > a {
+    color: #42b983 !important;
+    font-weight: bold;
 }
 
-/* ENLACES */
+/* Subtítulos y enlaces secundarios */
+.sidebar-nav ul li ul li a {
+    color: #ffffff !important;
+}
+
+/* Elemento seleccionado */
+.sidebar-nav li.active > a {
+    color: #42b983 !important;
+    border-right: 2px solid #42b983;
+}
+
+/* ===== ENLACES DEL CONTENIDO ===== */
 .markdown-section a {
     color: #42b983 !important;
 }
 
-/* SEPARADORES */
+/* ===== SEPARADORES ===== */
 .markdown-section hr {
     border-color: #374151 !important;
 }
