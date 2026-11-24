@@ -1,58 +1,118 @@
 
-/* ===== FONDO GENERAL ===== */
+/* =================================
+   TEMA OSCURO COMPLETO - DOCSIFY
+================================= */
+
+/* FONDO DE TODA LA PAGINA */
+html,
 body,
+#app,
+.app,
+.content,
+.markdown-section {
+    background: #111827 !important;
+    color: #e5e7eb !important;
+}
+
+/* ZONA PRINCIPAL */
 .content {
     background-color: #111827 !important;
 }
 
-/* ===== CONTENIDO ===== */
-.markdown-section {
-    color: #ffffff !important;
-}
-
-/* ===== TITULOS DEL CONTENIDO ===== */
+/* TITULOS PRINCIPALES */
 .markdown-section h1,
 .markdown-section h2,
 .markdown-section h3,
 .markdown-section h4,
-.markdown-section h5 {
+.markdown-section h5,
+.markdown-section h6 {
     color: #42b983 !important;
 }
 
-/* ===== PARRAFOS ===== */
+/* TEXTO GENERAL */
 .markdown-section p,
-.markdown-section li {
+.markdown-section li,
+.markdown-section span,
+.markdown-section blockquote {
     color: #e5e7eb !important;
 }
 
-/* ===== SIDEBAR ===== */
-.sidebar {
-    background-color: #1f2937 !important;
-}
-
-/* Títulos principales del sidebar */
-.sidebar-nav > ul > li > a {
-    color: #42b983 !important;
-    font-weight: bold;
-}
-
-/* Subtítulos y enlaces secundarios */
-.sidebar-nav ul li ul li a {
-    color: #ffffff !important;
-}
-
-/* Elemento seleccionado */
-.sidebar-nav li.active > a {
-    color: #42b983 !important;
-    border-right: 2px solid #42b983;
-}
-
-/* ===== ENLACES DEL CONTENIDO ===== */
+/* ENLACES */
 .markdown-section a {
     color: #42b983 !important;
 }
 
-/* ===== SEPARADORES ===== */
+/* TABLAS */
+.markdown-section table,
+.markdown-section tr,
+.markdown-section td,
+.markdown-section th {
+    background-color: #1f2937 !important;
+    color: #e5e7eb !important;
+    border-color: #374151 !important;
+}
+
+/* =================================
+   SIDEBAR
+================================= */
+
+.sidebar {
+    background: #1f2937 !important;
+    color: #ffffff !important;
+    border-right: 1px solid #374151 !important;
+}
+
+/* TODOS LOS TEXTOS DEL SIDEBAR */
+.sidebar,
+.sidebar *,
+.sidebar-nav,
+.sidebar-nav li,
+.sidebar-nav p,
+.sidebar-nav span {
+    color: #ffffff !important;
+}
+
+/* TITULOS Y SECCIONES DEL SIDEBAR */
+.sidebar-nav strong,
+.sidebar-nav b,
+.sidebar-nav > ul > li > a,
+.sidebar-nav > ul > li > p {
+    color: #42b983 !important;
+    font-weight: bold !important;
+}
+
+/* SUBTITULOS Y ENLACES SECUNDARIOS */
+.sidebar-nav ul li ul li a,
+.sidebar-nav ul li ul li p {
+    color: #ffffff !important;
+}
+
+/* SECCION ACTIVA */
+.sidebar-nav li.active > a {
+    color: #42b983 !important;
+    border-right: 2px solid #42b983 !important;
+}
+
+/* BUSCADOR */
+.sidebar input {
+    background: #111827 !important;
+    color: #ffffff !important;
+    border-color: #374151 !important;
+}
+
+/* BOTON MENU */
+.sidebar-toggle {
+    background: #1f2937 !important;
+}
+
+/* CODIGO */
+.markdown-section pre,
+.markdown-section code {
+    background-color: #1f2937 !important;
+    color: #42b983 !important;
+}
+
+/* SEPARADORES */
 .markdown-section hr {
     border-color: #374151 !important;
 }
